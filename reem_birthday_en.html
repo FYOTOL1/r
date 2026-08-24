@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday, Rورو 🌹</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --burgundy-deep:#2c0a17;
+    --burgundy:#4a1024;
+    --rose:#e78ea0;
+    --rose-soft:#f4c7cf;
+    --gold:#c9a15a;
+    --cream:#f6e9e2;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Jost',sans-serif;
+    background:var(--burgundy-deep);
+    color:var(--cream);
+    overflow-x:hidden;
+  }
+  .section{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    padding:6vh 6vw;
+    text-align:center;
+  }
+
+  /* ---------- background ambience ---------- */
+  .petal-field{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:0;
+    overflow:hidden;
+  }
+  .petal{
+    position:absolute;
+    top:-5%;
+    width:14px;
+    height:14px;
+    background:var(--rose);
+    border-radius:0 60% 0 60%;
+    opacity:.55;
+    animation:fall linear infinite;
+  }
+  @keyframes fall{
+    to{ transform:translateY(110vh) rotate(360deg); }
+  }
+
+  /* ---------- SECTION 1 : greeting ---------- */
+  #s1{
+    background:
+      radial-gradient(ellipse at 50% 20%, rgba(231,142,160,.18), transparent 60%),
+      var(--burgundy-deep);
+  }
+  .eyebrow{
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    color:var(--gold);
+    letter-spacing:.15em;
+    font-size:clamp(14px,2vw,18px);
+    margin-bottom:18px;
+    opacity:0;
+    animation:riseIn 1s .2s ease forwards;
+  }
+  .headline{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:700;
+    font-size:clamp(38px,8vw,100px);
+    line-height:1.15;
+    color:var(--cream);
+    text-shadow:0 0 40px rgba(231,142,160,.25);
+    opacity:0;
+    animation:riseIn 1s .5s ease forwards;
+  }
+  .headline span{
+    color:var(--rose);
+    display:inline-block;
+    font-style:italic;
+  }
+  .sub1{
+    margin-top:26px;
+    max-width:560px;
+    font-size:clamp(16px,2.2vw,19px);
+    color:var(--rose-soft);
+    line-height:1.9;
+    font-weight:300;
+    opacity:0;
+    animation:riseIn 1s .9s ease forwards;
+  }
+  @keyframes riseIn{
+    from{opacity:0; transform:translateY(24px);}
+    to{opacity:1; transform:translateY(0);}
+  }
+  .scroll-hint{
+    position:absolute;
+    bottom:36px;
+    font-size:12px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--gold);
+    opacity:.75;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:8px;
+    animation:bob 2.2s ease-in-out infinite;
+  }
+  .scroll-hint svg{width:16px;height:16px;fill:var(--gold);}
+  @keyframes bob{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(8px);}
+  }
+
+  /* ---------- SECTION 2 : the rose ---------- */
+  #s2{
+    background:
+      radial-gradient(ellipse at 50% 100%, rgba(201,161,90,.10), transparent 55%),
+      var(--burgundy);
+    gap:40px;
+  }
+  .rose-wrap{
+    width:min(60vw,300px);
+    filter:drop-shadow(0 20px 40px rgba(0,0,0,.4));
+  }
+  .rose-wrap svg{width:100%;height:auto;display:block;}
+  .petal-shape{
+    transform-origin:150px 190px;
+    transform:scale(.3);
+    opacity:0;
+  }
+  .rose-wrap.bloom .petal-shape{
+    animation:bloom 1.4s cubic-bezier(.2,.9,.3,1) forwards;
+  }
+  .rose-wrap.bloom .p1{animation-delay:.05s;}
+  .rose-wrap.bloom .p2{animation-delay:.15s;}
+  .rose-wrap.bloom .p3{animation-delay:.25s;}
+  .rose-wrap.bloom .p4{animation-delay:.35s;}
+  .rose-wrap.bloom .p5{animation-delay:.45s;}
+  .rose-wrap.bloom .p6{animation-delay:.55s;}
+  .rose-wrap.bloom .core{animation-delay:0s;}
+  @keyframes bloom{
+    0%{ transform:scale(.25) rotate(-14deg); opacity:0;}
+    70%{ opacity:1;}
+    100%{ transform:scale(1) rotate(0deg); opacity:1;}
+  }
+  .rose-words{
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-weight:500;
+    font-size:clamp(20px,3.6vw,32px);
+    color:var(--rose-soft);
+    max-width:600px;
+    line-height:1.85;
+    opacity:0;
+    transform:translateY(16px);
+    transition:opacity 1s ease, transform 1s ease;
+  }
+  .rose-words.show{opacity:1; transform:translateY(0);}
+  .rose-words .accent{color:var(--gold); font-weight:700;}
+
+  /* ---------- SECTION 3 : signature ---------- */
+  #s3{
+    background:
+      radial-gradient(ellipse at 50% 30%, rgba(231,142,160,.12), transparent 60%),
+      var(--burgundy-deep);
+  }
+  .sign-line{
+    width:1px;
+    height:0;
+    background:linear-gradient(to bottom, transparent, var(--gold), transparent);
+    margin-bottom:26px;
+    transition:height 1.2s ease;
+  }
+  .sign-line.grow{height:80px;}
+  .names{
+    display:flex;
+    align-items:baseline;
+    gap:16px;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+  .from-to{
+    font-family:'Jost',sans-serif;
+    font-weight:400;
+    font-size:clamp(12px,2vw,14px);
+    letter-spacing:.25em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:10px;
+    opacity:0;
+    animation:riseIn 1s .1s ease forwards;
+  }
+  .name-big{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:700;
+    font-size:clamp(36px,7vw,72px);
+    color:var(--rose);
+    opacity:0;
+    animation:riseIn 1s .35s ease forwards;
+  }
+  .name-nick{
+    font-family:'Jost',sans-serif;
+    font-weight:300;
+    font-size:clamp(15px,2vw,18px);
+    color:var(--rose-soft);
+    opacity:.85;
+  }
+  .signer{
+    margin-top:34px;
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-size:clamp(22px,3.6vw,30px);
+    color:var(--cream);
+    opacity:0;
+    animation:riseIn 1s .65s ease forwards;
+  }
+  .signer .heart{
+    color:var(--rose);
+    display:inline-block;
+    font-style:normal;
+    animation:pulse 1.6s ease-in-out infinite;
+  }
+  @keyframes pulse{
+    0%,100%{transform:scale(1);}
+    50%{transform:scale(1.18);}
+  }
+  .closing{
+    margin-top:10px;
+    font-size:13px;
+    letter-spacing:.15em;
+    text-transform:uppercase;
+    color:var(--gold);
+    opacity:0;
+    animation:riseIn 1s .9s ease forwards;
+  }
+
+  @media (max-width:480px){
+    .rose-wrap{width:70vw;}
+  }
+</style>
+</head>
+<body>
+
+<div class="petal-field" id="petalField"></div>
+
+<!-- SECTION 1 -->
+<section class="section" id="s1">
+  <div class="eyebrow">Today is a special day</div>
+  <h1 class="headline">Happy Birthday, <span>Reem</span></h1>
+  <p class="sub1">May this new year of yours be full of joy, laughter, and every good thing you wish for. Happy birthday, Roro 🎂</p>
+  <div class="scroll-hint">
+    Scroll down
+    <svg viewBox="0 0 24 24"><path d="M12 16l-6-6h12z"/></svg>
+  </div>
+</section>
+
+<!-- SECTION 2 -->
+<section class="section" id="s2">
+  <div class="rose-wrap" id="roseSvg">
+    <svg viewBox="0 0 300 340" xmlns="http://www.w3.org/2000/svg">
+      <!-- stem -->
+      <path d="M150 210 C140 250, 145 290, 150 330" stroke="#5b7a4f" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <path d="M150 260 C130 265, 118 250, 112 235" stroke="#5b7a4f" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <ellipse cx="108" cy="230" rx="16" ry="8" fill="#6b8f5c" transform="rotate(-30 108 230)"/>
+      <!-- petals -->
+      <g>
+        <ellipse class="petal-shape p1" cx="150" cy="150" rx="46" ry="60" fill="#c2415a" transform="rotate(0 150 190)"/>
+        <ellipse class="petal-shape p2" cx="150" cy="150" rx="46" ry="60" fill="#c94a63" transform="rotate(60 150 190)"/>
+        <ellipse class="petal-shape p3" cx="150" cy="150" rx="46" ry="60" fill="#c2415a" transform="rotate(120 150 190)"/>
+        <ellipse class="petal-shape p4" cx="150" cy="150" rx="46" ry="60" fill="#c94a63" transform="rotate(180 150 190)"/>
+        <ellipse class="petal-shape p5" cx="150" cy="150" rx="46" ry="60" fill="#c2415a" transform="rotate(240 150 190)"/>
+        <ellipse class="petal-shape p6" cx="150" cy="150" rx="46" ry="60" fill="#c94a63" transform="rotate(300 150 190)"/>
+      </g>
+      <circle class="petal-shape core" cx="150" cy="190" r="26" fill="#e8879a"/>
+    </svg>
+  </div>
+  <p class="rose-words" id="roseWords">
+    This rose is just like <span class="accent">Reem</span> — sweet, gentle, and leaves a lovely trace on everyone around her.<br>
+    Whenever you see a rose, know that it's thinking of you 🌹
+  </p>
+</section>
+
+<!-- SECTION 3 -->
+<section class="section" id="s3">
+  <div class="from-to">A special wish for</div>
+  <div class="names">
+    <span class="name-big">Reem</span>
+    <span class="name-nick">(Roro)</span>
+  </div>
+  <div class="sign-line" id="signLine"></div>
+  <p class="signer">Happy birthday, Roro <span class="heart">♥</span></p>
+  <p class="closing">From: Ahmed</p>
+</section>
+
+<script>
+  // falling petals
+  const field = document.getElementById('petalField');
+  const count = window.innerWidth < 600 ? 14 : 26;
+  for(let i=0;i<count;i++){
+    const p = document.createElement('div');
+    p.className = 'petal';
+    p.style.left = Math.random()*100 + 'vw';
+    p.style.animationDuration = (8 + Math.random()*10) + 's';
+    p.style.animationDelay = (Math.random()*10) + 's';
+    p.style.opacity = .25 + Math.random()*.4;
+    const scale = .5 + Math.random()*.9;
+    p.style.transform = `scale(${scale})`;
+    p.style.background = Math.random() > .5 ? 'var(--rose)' : 'var(--gold)';
+    field.appendChild(p);
+  }
+
+  // scroll-triggered reveals
+  const rose = document.getElementById('roseSvg');
+  const roseWords = document.getElementById('roseWords');
+  const signLine = document.getElementById('signLine');
+
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        if(entry.target.id === 's2'){
+          rose.classList.add('bloom');
+          setTimeout(()=> roseWords.classList.add('show'), 500);
+        }
+        if(entry.target.id === 's3'){
+          signLine.classList.add('grow');
+        }
+      }
+    });
+  }, {threshold:.45});
+
+  io.observe(document.getElementById('s2'));
+  io.observe(document.getElementById('s3'));
+</script>
+
+</body>
+</html>
